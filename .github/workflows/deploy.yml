@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@main
       - name: Build and push example shiny app to Heroku
-        uses: manchen07/rs-example # @version?
+        uses: manchen07/rs-example@main # @version?
         with:
           # This is the Heroku app name you already set up in dashboard
           heroku_app_name: rs-example
