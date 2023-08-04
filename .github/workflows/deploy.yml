@@ -1,0 +1,24 @@
+name: Deploy Example Shiny App to Heroku
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy Example Shiny app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build and push example shiny app to Heroku
+        uses: manchen07/rs-example@main # @version?
+        with:
+          # This is the Heroku app name you already set up in dashboard
+          heroku_app_name: rs-example
+          # app directory needs to be set relative to root of repo
+          appdir: "."
+          # secrets need to be added to the GitHub repo settings
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
